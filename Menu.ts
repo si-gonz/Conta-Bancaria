@@ -1,10 +1,35 @@
-import readlinesync = require("readline-sync");
+import readlinesync = require('readline-sync');
 import { colors } from './src/util/Colors';
+import { Conta } from './src/model/Conta';
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 
-export function main() {
+export function main(){
 
     let opcao: number;
 
+    //Cria instancia
+    const c1 = new Conta(1, 123, 1, "Cleiton", 45000);
+    c1.visualizar();
+    c1.sacar(3500);
+    c1.visualizar();
+    c1.depositar(200);
+    c1.visualizar();
+
+    const c2 = new ContaCorrente(2,123, 3, "Simone", 36000, 5000)
+    c2.visualizar();
+    c2.sacar(2800);
+    c2.visualizar();
+    c2.depositar(37000);
+    c2.visualizar();
+
+    const c3 = new ContaPoupanca(3, 123, 6, "Cleiton Klechen", 39000,"07.07.1983")
+    c3.visualizar();
+    c3.sacar(150);
+    c3.visualizar();
+    c3.depositar(800);
+    c3.visualizar();
+    
     while (true) {
 
         console.log(colors.bg.black, colors.fg.yellow, 
@@ -99,13 +124,13 @@ export function main() {
 
 }
 
-/* Função com os dados da pessoa desenvolvedora */
-function sobre(): void {
-    console.log("\n*****************************************************");
-    console.log("Projeto Desenvolvido por: Simone Gonzaga Gabriel");
-    console.log("Generation Brasil - generation@generation.org");
-    console.log("github.com/conteudoGeneration");
-    console.log("*****************************************************");
+function sobre() {
+    console.log(colors.fg.yellowstrong + "\n","*".repeat(24) ," Programa encerrado! ", "*".repeat(20), "\n"+ colors.reset)
+    console.log("Desenvolvido por: Simone Gonzaga")
+    console.log("GitHub: si-gonz")
+    console.log("LinkedIn: https://www.linkedin.com/in/simonegonzagag/")
+    console.log(colors.fg.yellowstrong + "\n","*".repeat(68) ,"\n"+ colors.reset)
+    process.exit(0)
 }
 
 function keyPress(): void {
@@ -114,5 +139,5 @@ function keyPress(): void {
     readlinesync.prompt();
 }
 
+
 main();
-       
