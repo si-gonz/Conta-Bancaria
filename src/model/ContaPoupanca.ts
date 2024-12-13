@@ -3,19 +3,19 @@ import { Conta } from "./Conta";
 
 export class ContaPoupanca extends Conta{
 
-    private _aniversario: string;
+    private _aniversario: number;
 
 
-	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number,aniversario: string) {
+	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number,aniversario: number) {
         super(numero, agencia, tipo, titular, saldo)
 		this._aniversario = aniversario;
 	}
 
-	public get aniversario(): string {
+	public get aniversario(): number {
 		return this._aniversario;
 	}
 
-	public set aniversario(value: string) {
+	public set aniversario(value: number) {
 		this._aniversario = value;
 	}
 
